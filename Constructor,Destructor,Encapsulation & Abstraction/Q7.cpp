@@ -19,12 +19,8 @@ public:
     bool isValidDate() {
         if (year < 1 || month < 1 || month > 12 || day < 1 || day > 31)
             return false;
-
-        // Handle months with 30 days
         if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
             return false;
-
-        // Handle February
         if (month == 2) {
             bool isLeap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
             if ((isLeap && day > 29) || (!isLeap && day > 28))
